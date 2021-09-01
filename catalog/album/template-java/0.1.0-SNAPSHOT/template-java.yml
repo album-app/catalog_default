@@ -1,0 +1,31 @@
+args:
+- action: action_function
+  default: Bugs Bunny
+  description: How to you want to be addressed?
+  name: name
+  type: string
+authors:
+- Deborah Schmidt
+cite:
+- doi: your first citation doi here
+  text: Your first citation text here
+- doi: your second citation doi here
+  text: Your second citation text here
+covers:
+- description: Dummy cover image.
+  source: cover.png
+description: An album solution template for running Java code.
+documentation: ''
+format_version: 0.3.0
+git_repo: https://gitlab.com/album-app/catalogs/default
+group: album
+license: UNLICENSE
+min_album_version: 0.1.0
+name: template-java
+tags:
+- template
+- python
+tested_album_version: 0.1.0
+timestamp: ''
+title: Java template
+version: 0.1.0-SNAPSHOT
