@@ -1,0 +1,31 @@
+args:
+- action: action_function
+  default: Bugs Bunny
+  description: How to you want to be addressed?
+  name: name
+  type: string
+authors:
+- Your name
+cite:
+- doi: your first citation doi
+  text: Your first citation text
+- doi: your second citation doi
+  text: Your second citation text
+covers:
+- description: Dummy cover image.
+  source: cover.png
+description: An album solution template for running Napari.
+documentation: ''
+format_version: 0.3.0
+git_repo: https://gitlab.com/album-app/catalogs/default
+group: album
+license: UNLICENSE
+min_album_version: 0.1.0
+name: template-napari
+tags:
+- template
+- napari
+tested_album_version: 0.1.0
+timestamp: ''
+title: Python template
+version: 0.1.0-SNAPSHOT

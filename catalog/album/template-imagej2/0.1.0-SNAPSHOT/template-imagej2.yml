@@ -1,0 +1,36 @@
+args:
+- action: action_function
+  default: random
+  description: A name for the image to be generated
+  name: name
+  type: string
+authors:
+- Your name
+cite:
+- doi: 10.1186/s12859-017-1934-z
+  text: 'Rueden, C. T., Schindelin, J., Hiner, M. C., DeZonia, B. E., Walter, A. E.,
+    Arena, E. T., & Eliceiri, K. W. (2017). ImageJ2: ImageJ for the next generation
+    of scientific image data. BMC Bioinformatics, 18(1).'
+- doi: your citation doi
+  text: Your citation text
+covers:
+- description: Dummy cover image.
+  source: cover.png
+description: An album solution template displaying an image with random values in
+  ImageJ2.
+documentation: ''
+format_version: 0.3.0
+git_repo: https://gitlab.com/album-app/catalogs/default
+group: album
+license: UNLICENSE
+min_album_version: 0.1.0
+name: template-imagej2
+tags:
+- template
+- java
+- imagej2
+- scijava
+tested_album_version: 0.1.0
+timestamp: ''
+title: ImageJ2 template
+version: 0.1.0-SNAPSHOT
