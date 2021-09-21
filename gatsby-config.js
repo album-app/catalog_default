@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/catalogs/default`,
   siteMetadata: {
     title: 'album default catalog',
     subtitle: 'solutions available in all album installations',
