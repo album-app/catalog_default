@@ -3,6 +3,6 @@ import { StaticImage } from "gatsby-plugin-image"
 
 export default function Logo() {
   return (
-  <StaticImage className="logo" src="../images/logo.png" alt="catalog logo" imgStyle={{ objectFit: "contain", placeholder: "blurred" }}/>
+  <StaticImage className="logo" src="../images/logo-album.png" alt="catalog logo" placeholder="blurred" fit="contain"/>
   );
 }
