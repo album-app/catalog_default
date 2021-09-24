@@ -15,13 +15,13 @@ pages:
       - gatsby/node_modules/
       # Enables git-lab CI caching. Both .cache and public must be cached, otherwise builds will fail.
       - gatsby/.cache/
-      - gatsby/public/
+      - public/
   script:
     - cd gatsby
     - npm install
     - ./node_modules/.bin/gatsby build --prefix-paths
   artifacts:
     paths:
-      - gatsby/public
+      - public
   only:
     - main
