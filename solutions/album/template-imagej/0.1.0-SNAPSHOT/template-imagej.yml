@@ -1,32 +1,32 @@
 args:
-- action: action_function
-  default: Bugs Bunny
-  description: How would you like to be addressed?
+- default: random
+  description: A name for the image to be generated
   name: name
   type: string
 authors:
 - Your name
 cite:
-- text: Rueden, C., Schindelin, J., Hiner, M. & Eliceiri, K. (2021). SciJava Common
-    [Software]. https://scijava.org/.
+- doi: 10.1038/nmeth.2089
+  text: "Schneider, C. A., Rasband, W. S., & Eliceiri, K. W. (2012). NIH Image to\
+    \ ImageJ: 25 years of image analysis. Nature Methods, 9(7), 671\u2013675."
 - doi: your citation doi
   text: Your citation text
 covers:
 - description: Dummy cover image.
   source: cover.png
-description: An album solution template displaying a text in SciJava.
+description: An album solution template displaying a noisy image in ImageJ.
 documentation: ''
 format_version: 0.3.0
 git_repo: https://gitlab.com/album-app/catalogs/default
 group: album
 license: UNLICENSE
 min_album_version: 0.1.0
-name: template-scijava
+name: template-imagej
 tags:
 - template
 - java
-- scijava
+- imagej
 tested_album_version: 0.1.0
 timestamp: ''
-title: SciJava template
+title: ImageJ template
 version: 0.1.0-SNAPSHOT

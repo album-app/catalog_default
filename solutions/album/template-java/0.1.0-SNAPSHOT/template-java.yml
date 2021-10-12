@@ -1,6 +1,5 @@
 args:
-- action: action_function
-  default: Bugs Bunny
+- default: Bugs Bunny
   description: How to you want to be addressed?
   name: name
   type: string
@@ -14,18 +13,18 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-description: An album solution template for running Python code.
+description: An album solution template for running Java code.
 documentation: ''
 format_version: 0.3.0
 git_repo: https://gitlab.com/album-app/catalogs/default
 group: album
 license: UNLICENSE
 min_album_version: 0.1.0
-name: template-python
+name: template-java
 tags:
 - template
-- java
+- python
 tested_album_version: 0.1.0
 timestamp: ''
-title: Python template
+title: Java template
 version: 0.1.0-SNAPSHOT
