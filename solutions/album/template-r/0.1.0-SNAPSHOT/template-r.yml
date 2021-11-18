@@ -14,8 +14,8 @@ covers:
 - description: Dummy cover image.
   source: cover.png
 description: An album solution template for running R code.
-documentation: ''
-format_version: 0.3.0
+documentation:
+  - documentation.md
 git_repo: https://gitlab.com/album-app/catalogs/default
 group: album
 license: UNLICENSE
