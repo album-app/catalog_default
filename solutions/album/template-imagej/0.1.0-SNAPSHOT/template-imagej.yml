@@ -15,18 +15,18 @@ covers:
 - description: Dummy cover image.
   source: cover.png
 description: An album solution template displaying a noisy image in ImageJ.
-documentation: ''
-format_version: 0.3.0
+documentation:
+  - documentation.md
 git_repo: https://gitlab.com/album-app/catalogs/default
 group: album
 license: UNLICENSE
-min_album_version: 0.1.0
+album_version: 0.1.0
 name: template-imagej
 tags:
 - template
 - java
 - imagej
-tested_album_version: 0.1.0
+album_api_version: 0.1.0
 timestamp: ''
 title: ImageJ template
 version: 0.1.0-SNAPSHOT

@@ -17,19 +17,19 @@ covers:
   source: cover.png
 description: An album solution template displaying an image with random values in
   BigDataViewer.
-documentation: ''
-format_version: 0.3.0
+documentation:
+  - documentation.md
 git_repo: https://gitlab.com/album-app/catalogs/default
 group: album
 license: UNLICENSE
-min_album_version: 0.1.0
+album_version: 0.1.0
 name: template-bdv
 tags:
 - template
 - java
 - bdv
 - bigdataviewer
-tested_album_version: 0.1.0
+album_api_version: 0.1.0
 timestamp: ''
 title: BigDataViewer template
 version: 0.1.0-SNAPSHOT
