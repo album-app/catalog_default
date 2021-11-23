@@ -1,3 +1,4 @@
+album_api_version: 0.1.1
 args:
 - default: random
   description: A name for the image to be generated
@@ -9,24 +10,22 @@ cite:
 - doi: 10.1038/nmeth.2089
   text: "Schneider, C. A., Rasband, W. S., & Eliceiri, K. W. (2012). NIH Image to\
     \ ImageJ: 25 years of image analysis. Nature Methods, 9(7), 671\u2013675."
+  url: https://imagej.nih.gov/ij/
 - doi: your citation doi
   text: Your citation text
+  url: your citation url
 covers:
 - description: Dummy cover image.
   source: cover.png
 description: An album solution template displaying a noisy image in ImageJ.
 documentation:
-  - documentation.md
-git_repo: https://gitlab.com/album-app/catalogs/default
+- documentation.md
 group: album
 license: UNLICENSE
-album_version: 0.1.0
 name: template-imagej
 tags:
 - template
 - java
 - imagej
-album_api_version: 0.1.0
-timestamp: ''
 title: ImageJ template
 version: 0.1.0-SNAPSHOT
