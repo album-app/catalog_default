@@ -1,3 +1,4 @@
+album_api_version: 0.1.1
 args:
 - default: Bugs Bunny
   description: How would you like to be addressed?
@@ -7,25 +8,23 @@ authors:
 - Your name
 cite:
 - text: Rueden, C., Schindelin, J., Hiner, M. & Eliceiri, K. (2021). SciJava Common
-    [Software]. https://scijava.org/.
+    [Software].
+  url: https://scijava.org/
 - doi: your citation doi
   text: Your citation text
+  url: your citation url
 covers:
 - description: Dummy cover image.
   source: cover.png
 description: An album solution template displaying a text in SciJava.
 documentation:
-  - documentation.md
-git_repo: https://gitlab.com/album-app/catalogs/default
+- documentation.md
 group: album
 license: UNLICENSE
-album_version: 0.1.0
 name: template-scijava
 tags:
 - template
 - java
 - scijava
-album_api_version: 0.1.0
-timestamp: ''
 title: SciJava template
 version: 0.1.0-SNAPSHOT

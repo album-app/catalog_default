@@ -1,3 +1,4 @@
+album_api_version: 0.1.1
 args:
 - default: Bugs Bunny
   description: How to you want to be addressed?
@@ -8,23 +9,21 @@ authors:
 cite:
 - doi: your first citation doi
   text: Your first citation text
+  url: your first citation url
 - doi: your second citation doi
   text: Your second citation text
+  url: your second citation url
 covers:
 - description: Dummy cover image.
   source: cover.png
 description: An album solution template for running Java code.
 documentation:
-  - documentation.md
-git_repo: https://gitlab.com/album-app/catalogs/default
+- documentation.md
 group: album
 license: UNLICENSE
-album_version: 0.1.0
 name: template-java
 tags:
 - template
 - python
-album_api_version: 0.1.0
-timestamp: ''
 title: Java template
 version: 0.1.0-SNAPSHOT

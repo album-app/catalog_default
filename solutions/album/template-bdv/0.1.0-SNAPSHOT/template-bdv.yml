@@ -1,3 +1,4 @@
+album_api_version: 0.1.1
 args:
 - default: random
   description: A name for the image to be generated
@@ -10,26 +11,24 @@ cite:
   text: "Pietzsch, T., Saalfeld, S., Preibisch, S., & Tomancak, P. (2015). BigDataViewer:\
     \ visualization and processing for large image data sets. Nature Methods, 12(6),\
     \ 481\u2013483."
+  url: https://imagej.net/plugins/bdv/
 - doi: your citation doi
   text: Your citation text
+  url: your citiation url
 covers:
 - description: Dummy cover image.
   source: cover.png
 description: An album solution template displaying an image with random values in
   BigDataViewer.
 documentation:
-  - documentation.md
-git_repo: https://gitlab.com/album-app/catalogs/default
+- documentation.md
 group: album
 license: UNLICENSE
-album_version: 0.1.0
 name: template-bdv
 tags:
 - template
 - java
 - bdv
 - bigdataviewer
-album_api_version: 0.1.0
-timestamp: ''
 title: BigDataViewer template
 version: 0.1.0-SNAPSHOT
