@@ -6,6 +6,9 @@ args:
   type: string
 authors:
 - Your name
+changelog: '- initial unofficial prelease
+
+  '
 cite:
 - doi: 10.1186/s12859-017-1934-z
   text: 'Rueden, C. T., Schindelin, J., Hiner, M. C., DeZonia, B. E., Walter, A. E.,
@@ -30,5 +33,6 @@ tags:
 - java
 - imagej2
 - scijava
+timestamp: '2021-12-14T12:11:02.319465'
 title: ImageJ2 template
 version: 0.1.0-SNAPSHOT

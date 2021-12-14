@@ -6,6 +6,9 @@ args:
   type: string
 authors:
 - Your name
+changelog: '- initial unofficial prelease
+
+  '
 cite:
 - doi: your first citation doi
   text: Your first citation text
@@ -25,5 +28,6 @@ name: template-napari
 tags:
 - template
 - napari
+timestamp: '2021-12-14T12:10:19.653473'
 title: Python template
 version: 0.1.0-SNAPSHOT

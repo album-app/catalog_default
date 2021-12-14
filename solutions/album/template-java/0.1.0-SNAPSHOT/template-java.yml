@@ -6,6 +6,9 @@ args:
   type: string
 authors:
 - Your name
+changelog: '- initial unofficial prelease
+
+  '
 cite:
 - doi: your first citation doi
   text: Your first citation text
@@ -25,5 +28,6 @@ name: template-java
 tags:
 - template
 - python
+timestamp: '2021-12-14T11:27:04.908212'
 title: Java template
 version: 0.1.0-SNAPSHOT
