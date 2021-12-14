@@ -6,6 +6,9 @@ args:
   type: string
 authors:
 - Your name
+changelog: '- initial unofficial prelease
+
+  '
 cite:
 - doi: 10.1038/nmeth.3392
   text: "Pietzsch, T., Saalfeld, S., Preibisch, S., & Tomancak, P. (2015). BigDataViewer:\
@@ -30,5 +33,6 @@ tags:
 - java
 - bdv
 - bigdataviewer
+timestamp: '2021-12-14T12:11:08.247745'
 title: BigDataViewer template
 version: 0.1.0-SNAPSHOT

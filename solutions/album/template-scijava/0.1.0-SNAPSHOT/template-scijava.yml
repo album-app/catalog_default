@@ -6,6 +6,9 @@ args:
   type: string
 authors:
 - Your name
+changelog: '- initial unofficial prelease
+
+  '
 cite:
 - text: Rueden, C., Schindelin, J., Hiner, M. & Eliceiri, K. (2021). SciJava Common
     [Software].
@@ -26,5 +29,6 @@ tags:
 - template
 - java
 - scijava
+timestamp: '2021-12-14T11:27:08.415561'
 title: SciJava template
 version: 0.1.0-SNAPSHOT
