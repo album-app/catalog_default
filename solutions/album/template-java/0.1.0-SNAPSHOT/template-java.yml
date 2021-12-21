@@ -1,4 +1,4 @@
-album_api_version: 0.1.1
+album_api_version: 0.2.1
 args:
 - default: Bugs Bunny
   description: How to you want to be addressed?
@@ -28,6 +28,6 @@ name: template-java
 tags:
 - template
 - python
-timestamp: '2021-12-14T11:27:04.908212'
+timestamp: '2021-12-21T17:05:24.466766'
 title: Java template
 version: 0.1.0-SNAPSHOT

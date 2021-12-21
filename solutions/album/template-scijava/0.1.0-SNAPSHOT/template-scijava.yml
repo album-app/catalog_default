@@ -1,4 +1,4 @@
-album_api_version: 0.1.1
+album_api_version: 0.2.1
 args:
 - default: Bugs Bunny
   description: How would you like to be addressed?
@@ -29,6 +29,6 @@ tags:
 - template
 - java
 - scijava
-timestamp: '2021-12-14T11:27:08.415561'
+timestamp: '2021-12-21T17:05:29.991732'
 title: SciJava template
 version: 0.1.0-SNAPSHOT
