@@ -1,9 +1,8 @@
 album_api_version: 0.2.1
 args:
-- default: random
-  description: A name for the image to be generated
-  name: name
-  type: string
+- description: The output file name to where a random image is going to be saved.
+  name: output_image_path
+  type: file
 authors:
 - Your name
 changelog: '- initial unofficial prelease
@@ -21,8 +20,8 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-description: An album solution template displaying an image with random values in
-  ImageJ2.
+description: An album solution template generating an imglib2 image with random values
+  in ImageJ2.
 documentation:
 - documentation.md
 group: album
@@ -33,6 +32,6 @@ tags:
 - java
 - imagej2
 - scijava
-timestamp: '2021-12-21T17:05:40.140977'
+timestamp: '2021-12-21T23:35:04.148542'
 title: ImageJ2 template
 version: 0.1.0-SNAPSHOT
