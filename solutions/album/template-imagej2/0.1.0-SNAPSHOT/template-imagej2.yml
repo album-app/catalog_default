@@ -1,4 +1,4 @@
-album_api_version: 0.1.1
+album_api_version: 0.2.1
 args:
 - default: random
   description: A name for the image to be generated
@@ -33,6 +33,6 @@ tags:
 - java
 - imagej2
 - scijava
-timestamp: '2021-12-14T12:11:02.319465'
+timestamp: '2021-12-21T17:05:40.140977'
 title: ImageJ2 template
 version: 0.1.0-SNAPSHOT

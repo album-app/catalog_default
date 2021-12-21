@@ -1,4 +1,4 @@
-album_api_version: 0.1.1
+album_api_version: 0.2.1
 args:
 - default: Bugs Bunny
   description: How to you want to be addressed?
@@ -28,6 +28,6 @@ name: template-r
 tags:
 - template
 - R
-timestamp: '2021-12-14T11:26:59.379015'
+timestamp: '2021-12-21T17:05:20.856444'
 title: R template
 version: 0.1.0-SNAPSHOT
