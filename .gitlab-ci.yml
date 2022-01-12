@@ -2,8 +2,66 @@ cache:
   paths:
     - vendor/
 
+#----------------------------
+# stages
+#----------------------------
+
 stages:
   - web_presence
+  - upload_publish
+
+#----------------------------
+# templates
+#----------------------------
+
+# Linux base template
+#
+# Uses a docker image where conda is already installed.
+# Creates a album environment.
+#
+.linux_base_template:
+  image: continuumio/miniconda3:4.9.2
+  before_script:
+    # install or update openssh, git + tools
+    - apt-get update -y && apt-get install -yqqf openssh-client git unzip sshpass rsync --fix-missing
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+    # check if ssh agent is running
+    - eval $(ssh-agent -s)
+    # install private deploy key from file
+    - cat $SSH_PRIVATE_KEY_FILE | tr -d '\r' | ssh-add - > /dev/null
+
+    # prepare .ssh folder
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+
+    # add gitlab.com to known hosts
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+    # setup conda & album
+    - python -V  # Print out python version for debugging
+    - pwd
+    - which python
+    - conda create -n album python pip
+    - conda init bash
+    - source ~/.bashrc
+    - conda activate album
+    - pip install album
+  variables:
+    PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+    CONDA_ENV_NAME: album
+    CONDA_PREFIX: /opt/conda
+    PREFIX: $CONDA_PREFIX/envs/$CONDA_ENV_NAME
+  cache:
+    key: one-key-to-rule-them-all-linux
+    paths:
+      - ${CONDA_PREFIX}/pkgs/*.tar.bz2
+      - ${CONDA_PREFIX}/pkgs/urls.txt
+
+#----------------------------
+# jobs
+#----------------------------
+
 
 pages:
   image: node:latest
@@ -26,3 +84,34 @@ pages:
       - public
   only:
     - main
+
+upload:
+  extends: .linux_base_template
+  stage: upload_publish
+  script:
+    - album-catalog-admin configure-repo $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --force-retrieve=True
+    - album-catalog-admin configure-ssh $CI_PROJECT_NAME /opt/catalog  $CI_PROJECT_URL
+    - album-catalog-admin upload $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    - album-catalog-admin push $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --trigger-pipeline=False --log=DEBUG
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - "solutions/**/*"
+
+publish:
+  extends: .linux_base_template
+  stage: upload_publish
+  needs:
+  - job: upload
+  script:
+    - album-catalog-admin configure-repo $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --force-retrieve=True
+    - album-catalog-admin configure-ssh $CI_PROJECT_NAME /opt/catalog  $CI_PROJECT_URL
+    - album-catalog-admin update $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    - album-catalog-admin publish $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - "solutions/**/*"
+      when: manual
+
