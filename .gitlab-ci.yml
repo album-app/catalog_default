@@ -46,7 +46,7 @@ stages:
     - conda init bash
     - source ~/.bashrc
     - conda activate album
-    - pip install album
+    - pip install git+https://gitlab.com/album-app/album.git@fix_release_manager
   variables:
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
     CONDA_ENV_NAME: album
