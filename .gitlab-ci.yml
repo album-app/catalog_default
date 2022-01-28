@@ -89,29 +89,57 @@ upload:
   extends: .linux_base_template
   stage: upload_publish
   script:
-    - album-catalog-admin configure-repo $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --force-retrieve=True
-    - album-catalog-admin configure-ssh $CI_PROJECT_NAME /opt/catalog  $CI_PROJECT_URL
-    - album-catalog-admin upload $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
-    - album-catalog-admin push $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --log=DEBUG
+    - album-catalog-admin upload $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --force-retrieve=True --report-file=/opt/catalog/report.yml
+    # create environment variables from report
+    - awk '{print $0}' /opt/catalog/report.yml | sed -e 's/:[^:\/\/]/="/g;s/$/"/g;s/ *=/=/g' > variables.env
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
         - "solutions/**/*"
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - "*.db"
+      when: never
+  artifacts:
+    reports:
+      dotenv: variables.env
 
 publish:
   extends: .linux_base_template
   stage: upload_publish
   needs:
-  - job: upload
+    - job: upload
+      artifacts: true
   script:
+    # using environment variables from upload job
+    - echo "publishing doi $DOI of zenodo deposit with id %DEPOSIT_ID"
+    # prepare repository to push changes
     - album-catalog-admin configure-repo $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --force-retrieve=True
     - album-catalog-admin configure-ssh $CI_PROJECT_NAME /opt/catalog  $CI_PROJECT_URL
-    - album-catalog-admin update $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    # update the index file of the catalog
+    - album-catalog-admin update $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL  --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --doi=$DOI --deposit_id=$DEPOSIT_ID
+    # commit changes
+    - album-catalog-admin commit $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL  --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    # publish the deposit
     - album-catalog-admin publish $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
-    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og
+    # merge the results to main
+    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --push-option=merge_request.merge_when_pipeline_succeeds
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
         - "solutions/**/*"
       when: manual
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - "*.db"
+      when: never
 
+merge:
+  stage: upload_publish
+  script:
+    - echo "Auto merge enabled! Success!"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - "*.db"
+      when: always
