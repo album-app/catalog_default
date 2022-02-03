@@ -127,7 +127,7 @@ publish:
       changes:
         - "solutions/**/*"
       when: manual
-    - if: '$MERGE_DIRECTLY == True'
+    - if: '$MERGE_DIRECTLY == "True"'
       when: never
 
 merge:
@@ -136,7 +136,7 @@ merge:
   script:
     - echo "Auto merge enabled! Success!"
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $MERGE_DIRECTLY == True'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $MERGE_DIRECTLY == "True"'
       changes:
         - "*.db"
       when: always
