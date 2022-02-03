@@ -96,9 +96,7 @@ upload:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
         - "solutions/**/*"
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      changes:
-        - "*.db"
+    - if: '$MERGE_DIRECTLY == "True"'
       when: never
   artifacts:
     reports:
@@ -121,25 +119,24 @@ publish:
     # commit changes
     - album-catalog-admin commit $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL  --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
     # publish the deposit
-    - album-catalog-admin publish $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    #- album-catalog-admin publish $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
     # merge the results to main
-    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --push-option=merge_request.merge_when_pipeline_succeeds
+    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name=gitlab-ci --ci-user-email=gitlab-ci@catal.og --push-option merge_request.merge_when_pipeline_succeeds ci.variable="MERGE_DIRECTLY=True"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
         - "solutions/**/*"
       when: manual
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      changes:
-        - "*.db"
+    - if: '$MERGE_DIRECTLY == "True"'
       when: never
 
 merge:
+  image: bash
   stage: upload_publish
   script:
     - echo "Auto merge enabled! Success!"
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $MERGE_DIRECTLY == "True"'
       changes:
         - "*.db"
       when: always
