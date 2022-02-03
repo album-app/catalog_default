@@ -121,7 +121,7 @@ publish:
     # publish the deposit
     #- album-catalog-admin publish $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
     # merge the results to main
-    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name gitlab-ci --ci-user-email gitlab-ci@catal.og --push-option merge_request.merge_when_pipeline_succeeds ci.variable='MERGE_DIRECTLY=True' --log DEBUG
+    - album-catalog-admin merge $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --ci-user-name gitlab-ci --ci-user-email gitlab-ci@catal.og --push-option merge_request.merge_when_pipeline_succeeds "ci.variable='MERGE_DIRECTLY=True'" --log DEBUG
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
