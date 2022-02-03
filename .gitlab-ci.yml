@@ -91,7 +91,7 @@ upload:
   script:
     - album-catalog-admin upload $CI_PROJECT_NAME /opt/catalog $CI_PROJECT_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --force-retrieve=True --report-file=/opt/catalog/report.yml
     # create environment variables from report
-    - awk '{print $0}' /opt/catalog/report.yml | sed -e 's/:[^:\/\/]/="/g;s/$/"/g;s/ *=/=/g' > variables.env
+    - awk '{print $0}' /opt/catalog/report.yml | sed -e 's/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g' > variables.env
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
