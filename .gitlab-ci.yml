@@ -132,7 +132,7 @@ publish:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
         - "solutions/**/*"
-      variables:
+      when: manual
 
 merge:
   image: bash
