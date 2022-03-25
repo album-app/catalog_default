@@ -42,11 +42,10 @@ stages:
     - python -V  # Print out python version for debugging
     - pwd
     - which python
-    - conda create -n album python pip
+    - conda env create -f https://gitlab.com/album-app/album/-/raw/main/album.yml
     - conda init bash
     - source ~/.bashrc
     - conda activate album
-    - pip install album
   variables:
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
     CONDA_ENV_NAME: album
