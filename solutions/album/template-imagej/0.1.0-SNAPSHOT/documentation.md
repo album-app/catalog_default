@@ -1,1 +1,0 @@
-# template-imagej markdown documentation

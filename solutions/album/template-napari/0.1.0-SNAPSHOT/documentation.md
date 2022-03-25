@@ -1,1 +1,0 @@
-# template-napari markdown documentation

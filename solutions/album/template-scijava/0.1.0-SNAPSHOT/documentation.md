@@ -1,1 +1,0 @@
-# template-scijava markdown documentation
