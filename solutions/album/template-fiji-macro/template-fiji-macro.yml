@@ -19,9 +19,11 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
+deposit_id: '6393846'
 description: An Album solution template run a macro script in Fiji.
 documentation:
 - documentation.md
+doi: 10.5281/zenodo.6393846
 group: album
 license: UNLICENSE
 name: template-fiji-macro
