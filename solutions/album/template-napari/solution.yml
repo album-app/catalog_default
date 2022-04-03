@@ -15,9 +15,11 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
+deposit_id: '6409780'
 description: An Album solution template for running Napari.
 documentation:
 - documentation.md
+doi: 10.5281/zenodo.6409780
 group: album
 license: unlicense
 name: template-napari
