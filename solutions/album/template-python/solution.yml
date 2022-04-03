@@ -11,9 +11,11 @@ cite: []
 covers:
 - description: Dummy cover image.
   source: cover.png
+deposit_id: '6410028'
 description: An Album solution template for running Python code.
 documentation:
 - documentation.md
+doi: 10.5281/zenodo.6410028
 group: album
 license: unlicense
 name: template-python
