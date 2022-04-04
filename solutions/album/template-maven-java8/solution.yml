@@ -10,10 +10,12 @@ changelog: null
 covers:
 - description: Dummy cover image.
   source: cover.png
+deposit_id: '6411456'
 description: An Album solution template running Java code via Maven, providing the
   POM and source file separately.
 documentation:
 - documentation.md
+doi: 10.5281/zenodo.6411456
 group: album
 license: unlicense
 name: template-maven-java8
