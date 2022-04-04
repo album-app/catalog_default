@@ -1,0 +1,27 @@
+album_api_version: 0.3.1
+args:
+- default: Bugs Bunny
+  description: How to you want to be addressed?
+  name: name
+  type: string
+authors:
+- Album team
+changelog: null
+cite:
+- text: 'R core team. R: A Language and Environment for Statistical Computing. R Foundation
+    for Statistical Computing'
+  url: https://www.R-project.org/
+covers:
+- description: Dummy cover image.
+  source: cover.png
+description: An Album solution template for running R code.
+documentation:
+- documentation.md
+group: album
+license: unlicense
+name: template-r
+tags:
+- template
+- R
+title: R template
+version: 0.1.0
