@@ -14,9 +14,11 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
+deposit_id: '6411064'
 description: An Album solution template for running R code.
 documentation:
 - documentation.md
+doi: 10.5281/zenodo.6411064
 group: album
 license: unlicense
 name: template-r
