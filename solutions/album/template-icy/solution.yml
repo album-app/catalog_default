@@ -1,0 +1,30 @@
+album_api_version: 0.3.1
+args:
+- description: The image about to be displayed in Icy.
+  name: input_image_path
+  required: true
+  type: file
+authors:
+- Album team
+changelog: '- initial release
+
+  '
+cite:
+- doi: 10.1038/nmeth.2075
+  text: 'de Chaumont, F. et al. (2012). Icy: an open bioimage informatics platform
+    for extended reproducible research, Nature Methods, 9, pp. 690-696'
+  url: https://icy.bioimageanalysis.org
+covers:
+- description: Dummy cover image.
+  source: cover.png
+description: An Album solution template for running Icy.
+documentation:
+- documentation.md
+group: album
+license: unlicense
+name: template-icy
+tags:
+- template
+- icy
+title: Icy template
+version: 0.1.0
