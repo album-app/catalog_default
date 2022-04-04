@@ -1,0 +1,29 @@
+album_api_version: 0.3.1
+args:
+- default: Bugs Bunny
+  description: How do you want to be addressed?
+  name: name
+  type: string
+authors:
+- Album team
+changelog: null
+cite:
+- text: scyjava - supercharged Java access from Python
+  url: https://pypi.org/project/scyjava
+covers:
+- description: Dummy cover image.
+  source: cover.png
+deposit_id: '6410878'
+description: An Album solution template for running Java code via scyjava.
+documentation:
+- documentation.md
+doi: 10.5281/zenodo.6410878
+group: album
+license: unlicense
+name: template-scyjava
+tags:
+- template
+- java
+- scyjava
+title: ScyJava template
+version: 0.1.0
