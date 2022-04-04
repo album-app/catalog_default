@@ -1,0 +1,26 @@
+album_api_version: 0.3.1
+args:
+- default: Bugs Bunny
+  description: How do you want to be addressed?
+  name: name
+  type: string
+authors:
+- Album team
+changelog: null
+covers:
+- description: Dummy cover image.
+  source: cover.png
+deposit_id: '6411481'
+description: An Album solution template running Java code via Maven.
+documentation:
+- documentation.md
+doi: 10.5281/zenodo.6411481
+group: album
+license: unlicense
+name: template-maven-singlefile
+tags:
+- template
+- java
+- maven
+title: Maven template (single file version)
+version: 0.1.0

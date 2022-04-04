@@ -1,0 +1,1 @@
+# template-maven-singlefile markdown documentation
