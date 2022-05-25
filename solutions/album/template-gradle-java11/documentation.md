@@ -1,0 +1,1 @@
+This template can be used to build and run Java applications using Gradle.
