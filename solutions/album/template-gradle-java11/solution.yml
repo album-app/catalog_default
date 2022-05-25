@@ -10,9 +10,11 @@ changelog: null
 covers:
 - description: Dummy cover image.
   source: cover.png
+deposit_id: '6580977'
 description: An Album solution template running Java code via Gradle.
 documentation:
 - documentation.md
+doi: 10.5281/zenodo.6580977
 group: album
 license: unlicense
 name: template-gradle-java11
