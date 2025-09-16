@@ -38,14 +38,17 @@ stages:
     - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
 
-    # setup conda & album
-    - python -V  # Print out python version for debugging
-    - pwd
-    - which python
-    - conda env create -f https://gitlab.com/album-app/album/-/raw/main/album.yml
-    - conda init bash
+    # setup micromamba & album
+    - mkdir -p $CI_PROJECT_DIR/bin
+    - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj -C $CI_PROJECT_DIR/bin bin/micromamba --strip-components=1 bin/micromamba
+    - export MICROMAMBA_EXECUTABLE=$CI_PROJECT_DIR/bin/micromamba
+    - $MICROMAMBA_EXECUTABLE --version
+    - eval "$($MICROMAMBA_EXECUTABLE shell hook -s bash)"
+    - micromamba create -y -n album -c conda-forge python=3.13 
     - source ~/.bashrc
-    - conda activate album
+    - micromamba activate album
+    - python -V 
+    - which python
   variables:
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
     CONDA_ENV_NAME: album
