@@ -40,7 +40,7 @@ stages:
 
     # setup micromamba & album
     - mkdir -p $CI_PROJECT_DIR/bin
-    - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj -C $CI_PROJECT_DIR/bin bin/micromamba
+    - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj -C $CI_PROJECT_DIR/bin/ --strip-components=1 bin/micromamba
     - export MICROMAMBA_EXECUTABLE=$CI_PROJECT_DIR/bin/micromamba
     - $MICROMAMBA_EXECUTABLE --version
     - eval "$($MICROMAMBA_EXECUTABLE shell hook -s bash)"
