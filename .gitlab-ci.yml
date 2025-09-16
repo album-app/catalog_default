@@ -20,7 +20,7 @@ stages:
 # Creates a album environment.
 #
 .linux_base_template:
-  image: continuumio/miniconda3:4.9.2
+  image: ubuntu:latest
   before_script:
     # install or update openssh, git + tools
     - apt-get update -y && apt-get install -yqqf openssh-client git unzip sshpass rsync --fix-missing
@@ -63,7 +63,7 @@ stages:
 
 
 pages:
-  image: node:14
+  image: node:23
   stage: web_presence
   # This folder is cached between builds
   # https://docs.gitlab.com/ce/ci/yaml/README.html#cache
