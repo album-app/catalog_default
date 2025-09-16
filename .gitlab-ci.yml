@@ -23,7 +23,7 @@ stages:
   image: ubuntu:latest
   before_script:
     # install or update openssh, git + tools
-    - apt-get update -y && apt-get install -yqqf openssh-client git unzip sshpass rsync --fix-missing
+    - apt-get update -y && apt-get install -yqqf openssh-client git unzip sshpass rsync bzip2 curl --fix-missing
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
     # check if ssh agent is running
     - eval $(ssh-agent -s)
