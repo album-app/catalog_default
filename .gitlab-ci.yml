@@ -1,3 +1,7 @@
+stages:
+  - upload_publish
+
+
 cache:
   paths:
     - vendor/
