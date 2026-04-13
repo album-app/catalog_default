@@ -7,6 +7,16 @@ cache:
     - vendor/
 
 #----------------------------
+# Authentication
+#----------------------------
+# Uses a Project Access Token (Maintainer role, write_repository scope).
+# Create one at: Settings → Access Tokens → Add new token.
+# Store the token value as CI/CD variable CI_AUTH_TOKEN.
+#
+# CI_USER_NAME / CI_USER_EMAIL are only for git commit authorship — not authentication.
+# Set them in CI/CD variables if you want a different author shown in commits other than specified here.
+
+#----------------------------
 # stages
 #----------------------------
 
@@ -28,11 +38,17 @@ cache:
     - python -V
     - which python
     - pip install git+https://gitlab.com/album-app/album.git@dev
+
+    # build auth URL using Project Access Token (Maintainer role)
+    - AUTH_URL="${CI_PROJECT_URL/https:\/\//https://${CI_USER_NAME}:${CI_AUTH_TOKEN}@}"
   variables:
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
     CONDA_ENV_NAME: album
     CONDA_PREFIX: /opt/conda
     PREFIX: $CONDA_PREFIX/envs/$CONDA_ENV_NAME
+    # git commit authorship (not authentication — override in CI/CD settings if needed)
+    CI_USER_NAME: "Album CI Bot"
+    CI_USER_EMAIL: "ci@album.solutions"
   cache:
     key: one-key-to-rule-them-all-linux
     paths:
@@ -45,8 +61,6 @@ upload:
   extends: .linux_base_template
   stage: upload_publish
   script:
-    - AUTH_URL=$CI_PROJECT_URL
-    - '[[ -n "$CI_USER_NAME" && -n "$CI_AUTH_TOKEN" ]] && AUTH_URL="${AUTH_URL/https:\/\//https://$CI_USER_NAME:$CI_AUTH_TOKEN@}"'
     - album-catalog-admin upload $CI_PROJECT_NAME /opt/catalog $AUTH_URL --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --force-retrieve=True --report-file=/opt/catalog/report.yml
     # create environment variables from report
     - awk '{print $0}' /opt/catalog/report.yml | sed -e 's/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g' > variables.env
@@ -70,10 +84,8 @@ publish:
       artifacts: true
   script:
     # using environment variables from upload job
-    - echo "publishing doi $DOI of zenodo deposit with id %DEPOSIT_ID"
+    - echo "publishing doi $DOI of zenodo deposit with id $DEPOSIT_ID"
     # prepare repository to push changes
-    - AUTH_URL=$CI_PROJECT_URL
-    - '[[ -n "$CI_USER_NAME" && -n "$CI_AUTH_TOKEN" ]] && AUTH_URL="${AUTH_URL/https:\/\//https://$CI_USER_NAME:$CI_AUTH_TOKEN@}"'
     - album-catalog-admin configure-repo $CI_PROJECT_NAME /opt/catalog $AUTH_URL --force-retrieve=True
     # update the index file of the catalog
     - album-catalog-admin update $CI_PROJECT_NAME /opt/catalog $AUTH_URL  --branch-name=$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --doi=$DOI --deposit-id=$DEPOSIT_ID
