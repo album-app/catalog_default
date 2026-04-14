@@ -1,19 +1,16 @@
-from io import StringIO
-
 from album.runner.api import setup
 
 # Please import additional modules at the beginning of your method declarations.
 # More information: https://docs.album.solutions/en/latest/solution-development/
 
-env_file = StringIO("""channels:
+env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.9
-  - maven=3.8.1
-  - openjdk=11.0.9.1
-  - yattag=1.13.2
-""")
+  - python=3.12
+  - maven=3.9.9
+  - openjdk=11.0.30
+  - yattag=1.16.1
+"""
 
 
 def install():
@@ -78,10 +75,10 @@ def _write_main():
 setup(
     group="album",
     name="template-maven-singlefile",
-    version="0.1.0",
+    version="0.1.1",
     title="Maven template (single file version)",
     description="An Album solution template running Java code via Maven.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     tags=["template", "java", "maven"],
     documentation=["documentation.md"],
     covers=[{
@@ -89,7 +86,8 @@ setup(
         "source": "cover.png"
     }],
     license="unlicense",
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6411481",
     args=[{
         "name": "name",
         "type": "string",
@@ -98,5 +96,5 @@ setup(
     }],
     install=install,
     run=run,
-    dependencies={'parent': {'resolve_solution': 'album:template-maven-java11:0.1.0'}}
+    dependencies={'parent': {'resolve_solution': 'album:template-maven-java11:0.1.1'}}
 )

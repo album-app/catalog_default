@@ -1,26 +1,44 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - default: Bugs Bunny
   description: How do you want to be addressed?
   name: name
   type: string
-authors:
-- Album team
-changelog: null
+changelog: '- Removed `StringIO` wrapper from environment file definition
+
+  - Updated Python from 3.9 to 3.12
+
+  - Updated Maven from 3.8.1 to 3.9.9
+
+  - Updated OpenJDK from 11.0.9.1 to 11.0.30
+
+  - Updated yattag from 1.13.2 to 1.16.1
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version to 0.7.1
+
+  - Added Zenodo DOI
+
+  - Updated parent dependency to template-maven-java11:0.1.1
+
+  '
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6411481'
+deposit_id: '19582045'
 description: An Album solution template running Java code via Maven.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6411481
+doi: 10.5281/zenodo.19582045
 group: album
 license: unlicense
 name: template-maven-singlefile
+solution_creators:
+- Album team
 tags:
 - template
 - java
 - maven
 title: Maven template (single file version)
-version: 0.1.0
+version: 0.1.1
