@@ -5,11 +5,10 @@ from album.runner.api import setup
 
 env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.9
-  - gradle=7.4.2
-  - openjdk=11.0.9.1
+  - python=3.12
+  - gradle=8.11.1
+  - openjdk=11.0.30
 """
 
 
@@ -38,10 +37,10 @@ def run():
 setup(
     group="album",
     name="template-gradle-java11",
-    version="0.1.0",
+    version="0.1.1",
     title="Gradle template for Java 11",
     description="An Album solution template running Java code via Gradle.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     tags=["template", "java", "gradle"],
     documentation=["documentation.md"],
     covers=[{
@@ -49,7 +48,8 @@ setup(
         "source": "cover.png"
     }],
     license="unlicense",
-    album_api_version="0.4.2",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6580977",
     args=[{
         "name": "name",
         "type": "string",

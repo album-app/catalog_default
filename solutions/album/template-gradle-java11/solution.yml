@@ -1,26 +1,40 @@
-album_api_version: 0.4.2
+album_api_version: 0.7.1
 args:
 - default: Bugs Bunny
   description: How do you want to be addressed?
   name: name
   type: string
-authors:
-- Album team
-changelog: null
+changelog: '- Updated Python from 3.9 to 3.12
+
+  - Updated Gradle from 7.4.2 to 8.11.1
+
+  - Updated OpenJDK from 11.0.9.1 to 11.0.30
+
+  - Fixed Java source compatibility from VERSION_1_8 to VERSION_11
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version from 0.4.2 to 0.7.1
+
+  - Added Zenodo DOI
+
+  '
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6580977'
+deposit_id: '19582898'
 description: An Album solution template running Java code via Gradle.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6580977
+doi: 10.5281/zenodo.19582898
 group: album
 license: unlicense
 name: template-gradle-java11
+solution_creators:
+- Album team
 tags:
 - template
 - java
 - gradle
 title: Gradle template for Java 11
-version: 0.1.0
+version: 0.1.1
