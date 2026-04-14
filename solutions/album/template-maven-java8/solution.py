@@ -5,12 +5,11 @@ from album.runner.api import setup
 
 env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.9
-  - maven=3.8.1
-  - openjdk=8.0.152
-  - yattag=1.13.2
+  - python=3.12
+  - maven=3.9.9
+  - openjdk=8.0.472
+  - yattag=1.16.1
 """
 
 
@@ -40,10 +39,10 @@ def run():
 setup(
     group="album",
     name="template-maven-java8",
-    version="0.1.0",
+    version="0.1.1",
     title="Maven template for Java 8",
     description="An Album solution template running Java code via Maven, providing the POM and source file separately.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     tags=["template", "java", "maven"],
     documentation=["documentation.md"],
     covers=[{
@@ -51,7 +50,8 @@ setup(
         "source": "cover.png"
     }],
     license="unlicense",
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6411456",
     args=[{
         "name": "name",
         "type": "string",
