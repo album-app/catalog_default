@@ -32,12 +32,12 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6411110'
+deposit_id: '19582929'
 description: An Album solution template generating an ImgLib2 image with random values
   in ImageJ2.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6411110
+doi: 10.5281/zenodo.19582929
 group: album
 license: unlicense
 name: template-imagej2
