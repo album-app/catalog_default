@@ -1,26 +1,34 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - default: Bugs Bunny
   description: How to you want to be addressed?
   name: name
   type: string
-authors:
-- Album team
-changelog: null
+changelog: '- Updated Python from 3.9 to 3.14
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version to 0.7.1
+
+  - Added Zenodo DOI
+
+  '
 cite: []
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6410028'
+deposit_id: '''19553456'''
 description: An Album solution template for running Python code.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6410028
+doi: 10.5281/zenodo.19553456
 group: album
 license: unlicense
 name: template-python
+solution_creators:
+- Album team
 tags:
 - template
 - python
 title: Python template
-version: 0.1.0
+version: 0.1.1

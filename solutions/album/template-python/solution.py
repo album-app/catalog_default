@@ -5,9 +5,8 @@ from album.runner.api import setup
 
 env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.9
+  - python=3.14
 """
 
 
@@ -20,10 +19,10 @@ def run():
 setup(
     group="album",
     name="template-python",
-    version="0.1.0",
+    version="0.1.1",
     title="Python template",
     description="An Album solution template for running Python code.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     cite=[],
     tags=["template", "python"],
     license="unlicense",
@@ -32,7 +31,8 @@ setup(
         "description": "Dummy cover image.",
         "source": "cover.png"
     }],
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6410028",
     args=[{
         "name": "name",
         "type": "string",
