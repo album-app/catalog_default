@@ -1,12 +1,18 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - default: Bugs Bunny
   description: How to you want to be addressed?
   name: name
   type: string
-authors:
-- Album team
-changelog: null
+changelog: '- Updated Python from 3.8 to 3.12
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version to 0.7.1
+
+  - Added Zenodo DOI
+
+  '
 cite:
 - text: 'R core team. R: A Language and Environment for Statistical Computing. R Foundation
     for Statistical Computing'
@@ -22,8 +28,10 @@ doi: 10.5281/zenodo.6411064
 group: album
 license: unlicense
 name: template-r
+solution_creators:
+- Album team
 tags:
 - template
 - R
 title: R template
-version: 0.1.0
+version: 0.1.1
