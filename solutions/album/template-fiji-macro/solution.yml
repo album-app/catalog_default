@@ -1,13 +1,22 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - description: The output file name to where the processed boat image is going to
     be saved.
   name: output_image_path
   required: true
   type: file
-authors:
-- Album team
-changelog: '- initial release
+changelog: '- Updated Fiji dependency from 2.3.1 to 2.17.0
+
+  - Replaced sample image `run("Boats")` with generated test image `newImage()` in
+  macro
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version from 0.3.1 to 0.7.1
+
+  - Added Zenodo DOI
+
+  - Updated parent dependency to template-maven-java11:0.1.1
 
   '
 cite:
@@ -27,12 +36,13 @@ doi: 10.5281/zenodo.6405812
 group: album
 license: unlicense
 name: template-fiji-macro
+solution_creators:
+- Album team
 tags:
 - template
 - java
 - fiji
 - macro
 - maven
-timestamp: '2022-04-01T13:10:34.596358'
 title: Fiji Macro template
-version: 0.1.0
+version: 0.1.1
