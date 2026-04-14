@@ -26,11 +26,11 @@ changelog: '- Removed `StringIO` wrapper from environment file definition
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6411481'
+deposit_id: '19582045'
 description: An Album solution template running Java code via Maven.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6411481
+doi: 10.5281/zenodo.19582045
 group: album
 license: unlicense
 name: template-maven-singlefile
