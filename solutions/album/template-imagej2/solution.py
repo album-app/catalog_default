@@ -5,17 +5,29 @@ from album.runner.api import setup
 
 env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.8
-  - pyimagej=1.0.2
-  - openjdk=11.0.9.1
+  - python=3.12
+  - pyimagej=1.8.0
+  - openjdk=11.0.30
 """
 
 def init_ij():
     import imagej
+    import tempfile
+    from scyjava import config
+
+    # Silence log4j 1.x "no appenders" warnings from ImageJ2/SciJava
+    log4j_props = tempfile.NamedTemporaryFile(
+        mode="w", suffix=".properties", delete=False
+    )
+    log4j_props.write("log4j.rootLogger=ERROR, stderr\n")
+    log4j_props.write("log4j.appender.stderr=org.apache.log4j.ConsoleAppender\n")
+    log4j_props.write("log4j.appender.stderr.layout=org.apache.log4j.PatternLayout\n")
+    log4j_props.close()
+    config.add_option(f'-Dlog4j.configuration=file:{log4j_props.name}')
+
     # see this link for initialization options: https://github.com/imagej/pyimagej/blob/master/doc/Initialization.md
-    return imagej.init('2.3.0')
+    return imagej.init('2.17.0')
 
 
 def install():
@@ -53,7 +65,7 @@ def run():
         Path(os.path.abspath(image_path)).parent.mkdir(parents=True, exist_ok=True)
 
         # save image to output file
-        ij.io().save(ij.dataset().create(img), image_path)
+        ij.io().save(ij.dataset().create(img), str(image_path))
 
     finally:
         ij.dispose()
@@ -74,10 +86,10 @@ def test():
 setup(
     group="album",
     name="template-imagej2",
-    version="0.1.0",
+    version="0.1.1",
     title="ImageJ2 template",
     description="An Album solution template generating an ImgLib2 image with random values in ImageJ2.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     cite=[{
         "text": "Rueden, C. T., Schindelin, J., Hiner, M. C., DeZonia, B. E., Walter, A. E., Arena, E. T., & Eliceiri, K. W. (2017). ImageJ2: ImageJ for the next generation of scientific image data. BMC Bioinformatics, 18(1).",
         "doi": "10.1186/s12859-017-1934-z",
@@ -90,7 +102,8 @@ setup(
         "description": "Dummy cover image.",
         "source": "cover.png"
     }],
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6411110",
     args=[{
         "name": "output_image_path",
         "type": "file",

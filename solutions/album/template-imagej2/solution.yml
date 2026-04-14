@@ -1,12 +1,28 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - description: The output file name to where a random image is going to be saved.
   name: output_image_path
   required: true
   type: file
-authors:
-- Album team
-changelog: null
+changelog: '- Updated Python from 3.8 to 3.12
+
+  - Updated pyimagej from 1.0.2 to 1.8.0
+
+  - Updated OpenJDK from 11.0.9.1 to 11.0.30
+
+  - Updated ImageJ2 from 2.3.0 to 2.17.0
+
+  - Added log4j configuration to silence "no appenders" warnings
+
+  - Fixed `ij.io().save()` call to properly convert image path to string
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version to 0.7.1
+
+  - Added Zenodo DOI
+
+  '
 cite:
 - doi: 10.1186/s12859-017-1934-z
   text: 'Rueden, C. T., Schindelin, J., Hiner, M. C., DeZonia, B. E., Walter, A. E.,
@@ -25,6 +41,8 @@ doi: 10.5281/zenodo.6411110
 group: album
 license: unlicense
 name: template-imagej2
+solution_creators:
+- Album team
 tags:
 - template
 - java
@@ -32,4 +50,4 @@ tags:
 - scijava
 - scyjava
 title: ImageJ2 template
-version: 0.1.0
+version: 0.1.1
