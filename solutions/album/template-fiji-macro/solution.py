@@ -19,7 +19,7 @@ def install():
         with add_repositories(writer):
             add_repository(writer, 'scijava.public', 'https://maven.scijava.org/content/groups/public')
         with add_dependencies(writer):
-            add_dependency(writer, 'sc.fiji:fiji:2.3.1', exclude=['net.imagej:imagej-updater'])
+            add_dependency(writer, 'sc.fiji:fiji:2.17.0', exclude=['net.imagej:imagej-updater'])
 
     write_main()
 
@@ -125,10 +125,10 @@ public class Main {
 setup(
     group="album",
     name="template-fiji-macro",
-    version="0.1.0",
+    version="0.1.1",
     title="Fiji Macro template",
     description="An Album solution template run a macro script in Fiji.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     cite=[{
         "text": "Schindelin, J., Arganda-Carreras, I., Frise, E., Kaynig, V., Longair, M., Pietzsch, T., … Cardona, A. (2012). Fiji: an open-source platform for biological-image analysis. Nature Methods, 9(7), 676–682. ",
         "doi": "10.1038/nmeth.2019",
@@ -141,7 +141,8 @@ setup(
         "description": "Dummy cover image.",
         "source": "cover.png"
     }],
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6405812",
     args=[{
         "name": "output_image_path",
         "type": "file",
@@ -152,7 +153,7 @@ setup(
     run=run,
     dependencies={
         'parent': {
-            'resolve_solution': 'album:template-maven-java11:0.1.0'
+            'resolve_solution': 'album:template-maven-java11:0.1.1'
         }
     }
 )
