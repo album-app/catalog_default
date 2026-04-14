@@ -1,12 +1,22 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - description: The image about to be displayed in Icy.
   name: input_image_path
   required: true
   type: file
-authors:
-- Album team
-changelog: '- initial release
+changelog: '- Switched Maven repository from icy-nexus to scijava.public
+
+  - Updated icy-kernel from 2.4.0 to 2.5.1
+
+  - Added `settings.xml` to override Maven HTTP blocker for legacy repositories
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version from 0.3.1 to 0.7.1
+
+  - Added Zenodo DOI
+
+  - Updated parent dependency to template-maven-java11:0.1.1
 
   '
 cite:
@@ -17,16 +27,18 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6411528'
+deposit_id: '19582881'
 description: An Album solution template for running Icy.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6411528
+doi: 10.5281/zenodo.19582881
 group: album
 license: unlicense
 name: template-icy
+solution_creators:
+- Album team
 tags:
 - template
 - icy
 title: Icy template
-version: 0.1.0
+version: 0.1.1
