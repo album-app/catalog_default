@@ -23,11 +23,11 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6410878'
+deposit_id: '19574408'
 description: An Album solution template for running Java code via scyjava.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6410878
+doi: 10.5281/zenodo.19574408
 group: album
 license: unlicense
 name: template-scyjava
