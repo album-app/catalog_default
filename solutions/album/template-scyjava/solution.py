@@ -5,11 +5,10 @@ from album.runner.api import setup
 
 env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.8
-  - scyjava=1.4.1
-  - openjdk=11.0.9.1
+  - python=3.12
+  - scyjava=1.9.1
+  - openjdk=11.0.30
 """
 
 
@@ -31,10 +30,10 @@ def run():
 setup(
     group="album",
     name="template-scyjava",
-    version="0.1.0",
+    version="0.1.1",
     title="ScyJava template",
     description="An Album solution template for running Java code via scyjava.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     tags=["template", "java", "scyjava"],
     license="unlicense",
     documentation=["documentation.md"],
@@ -46,7 +45,8 @@ setup(
         "text": "scyjava - supercharged Java access from Python",
         "url": "https://pypi.org/project/scyjava"
     }],
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6410878",
     args=[{
         "name": "name",
         "type": "string",
