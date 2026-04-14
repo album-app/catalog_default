@@ -28,11 +28,11 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6405812'
+deposit_id: '19582914'
 description: An Album solution template run a macro script in Fiji.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6405812
+doi: 10.5281/zenodo.19582914
 group: album
 license: unlicense
 name: template-fiji-macro
