@@ -5,9 +5,8 @@ from album.runner.api import setup
 
 env_file = """channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.8
+  - python=3.12
   - R
 """
 
@@ -37,10 +36,10 @@ def run():
 setup(
     group="album",
     name="template-r",
-    version="0.1.0",
+    version="0.1.1",
     title="R template",
     description="An Album solution template for running R code.",
-    authors=["Album team"],
+    solution_creators=["Album team"],
     cite=[{
         "text": "R core team. R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing",
         "url": "https://www.R-project.org/"
@@ -52,7 +51,8 @@ setup(
         "description": "Dummy cover image.",
         "source": "cover.png"
     }],
-    album_api_version="0.3.1",
+    album_api_version="0.7.1",
+    doi="10.5281/zenodo.6411064",
     args=[{
         "name": "name",
         "type": "string",
