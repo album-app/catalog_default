@@ -1,12 +1,27 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - description: The image about to be displayed in Napari.
   name: input_image_path
   required: true
   type: file
-authors:
-- Album team
-changelog: null
+changelog: '- Updated Python from 3.8 to 3.12
+
+  - Updated scikit-image from 0.19.1 to 0.25.2
+
+  - Updated napari from 0.4.14 to 0.5.6
+
+  - Removed explicit pip version pin
+
+  - Updated napari API usage: replaced `napari.view_image()` with `napari.Viewer()`
+  + `viewer.add_image()`
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version to 0.7.1
+
+  - Added Zenodo DOI
+
+  '
 cite:
 - doi: 10.5281/zenodo.3555620
   text: 'napari contributors (2019). napari: a multi-dimensional image viewer for
@@ -15,16 +30,18 @@ cite:
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6409780'
+deposit_id: '19581831'
 description: An Album solution template for running Napari.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6409780
+doi: 10.5281/zenodo.19581831
 group: album
 license: unlicense
 name: template-napari
+solution_creators:
+- Album team
 tags:
 - template
 - napari
 title: Napari template
-version: 0.1.0
+version: 0.1.1
