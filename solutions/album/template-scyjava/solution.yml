@@ -1,29 +1,41 @@
-album_api_version: 0.3.1
+album_api_version: 0.7.1
 args:
 - default: Bugs Bunny
   description: How do you want to be addressed?
   name: name
   type: string
-authors:
-- Album team
-changelog: null
+changelog: '- Updated Python from 3.8 to 3.12
+
+  - Updated scyjava from 1.4.1 to 1.9.1
+
+  - Updated OpenJDK from 11.0.9.1 to 11.0.30
+
+  - Renamed `authors` to `solution_creators` (album solution API 0.7.1)
+
+  - Updated album API version to 0.7.1
+
+  - Added Zenodo DOI
+
+  '
 cite:
 - text: scyjava - supercharged Java access from Python
   url: https://pypi.org/project/scyjava
 covers:
 - description: Dummy cover image.
   source: cover.png
-deposit_id: '6410878'
+deposit_id: '19574408'
 description: An Album solution template for running Java code via scyjava.
 documentation:
 - documentation.md
-doi: 10.5281/zenodo.6410878
+doi: 10.5281/zenodo.19574408
 group: album
 license: unlicense
 name: template-scyjava
+solution_creators:
+- Album team
 tags:
 - template
 - java
 - scyjava
 title: ScyJava template
-version: 0.1.0
+version: 0.1.1
