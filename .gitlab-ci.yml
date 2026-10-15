@@ -8,6 +8,17 @@ cache:
     - vendor/
 
 #----------------------------
+# Runners
+#----------------------------
+# Shared runners are disabled for this project, so the jobs run on the album-app
+# group runners. Those only take tagged jobs; docker + linux selects the
+# "Docker Linux Runner", which has the Docker executor the image: keywords need.
+default:
+  tags:
+    - docker
+    - linux
+
+#----------------------------
 # Authentication
 #----------------------------
 # Uses a Project Access Token (Maintainer role, write_repository scope).
